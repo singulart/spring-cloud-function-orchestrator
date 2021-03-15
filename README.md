@@ -1,4 +1,6 @@
-This is an example of how Spring Cloud Functions can be composed into a sinlgle data pipeline without coding this in Java. Instead, application configuration is used to make this pipeline:
+This is an example of how Spring Cloud Functions can be composed into a sinlgle data pipeline without coding this in Java. Instead, application configuration is used to make this pipeline.
+
+Note: Functions do not know where their input comes from, or where their output should be sent to. This is the task of Orchestrator to connect inputs to outputs thus composing the pipeline. But since there is no code that manages this, I feel like this approach is very hard to understand. 
 
 Flow 1: uppercase -> clone (duplicate ) -> add '!' mark
 ``` gradle clean bootRun --args='--spring.cloud.stream.internal.namespace=backbase_customer_engamenent --spring.cloud.stream.bindings.flow1-in-0.destination=backbase.start --spring.cloud.stream.bindings.flow1-out-0.destination=uppercase --spring.cloud.stream.bindings.uppercase-in-0.destination=uppercase --spring.cloud.stream.bindings.uppercase-out-0.destination=duplicate --spring.cloud.stream.bindings.duplicate-in-0.destination=duplicate --spring.cloud.stream.bindings.duplicate-out-0.destination=exclamation --spring.cloud.stream.bindings.exclamation-in-0.destination=exclamation --spring.cloud.stream.bindings.exclamation-out-0.destination=backbase.end --spring.cloud.function.definition=flow1;uppercase;duplicate;exclamation'```
