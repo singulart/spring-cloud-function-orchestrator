@@ -1,0 +1,47 @@
+spring:
+  kafka:
+    bootstrap-servers: 192.168.90.103:29092
+  cloud:
+#    function:
+#      definition: uppercase;duplicate;exclamation
+    stream:
+      default-binder: kafka
+#      bindings:
+#        provideInput-in-0:
+#          destination: backbase.start
+#          content-type: text/plain
+#        end:
+#          destination: backbase.end
+#          content-type: text/plain
+#        uppercase-in-0:
+#          destination: uppercase
+#          group: uppercaseFunctionIn
+#          content-type: text/plain
+#        uppercase-out-0:
+#          destination: uppercase-out
+#          group: uppercaseFunctionOut
+#          content-type: text/plain
+#        duplicate-in-0:
+#          destination: duplicate
+#          group: duplicateFunctionIn
+#          content-type: text/plain
+#        duplicate-out-0:
+#          destination: duplicate-out
+#          group: duplicateFunctionOut
+#          content-type: text/plain
+#        exclamation-in-0:
+#          destination: exclamation
+#          group: exclamationFunctionIn
+#          content-type: text/plain
+#        exclamation-out-0:
+#          group: exclamationFunctionOut
+#          destination: exclamation-out
+#          content-type: text/plain
+#      function:
+#        bindings:
+#          uppercase|duplicate|exclamation: threeStageStringManipulation
+#        definition: uppercase;duplicate;exclamation
+logging:
+  level:
+    org.springframework.cloud: TRACE
+    org.apache.kafka: WARN
